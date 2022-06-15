@@ -12,12 +12,11 @@ if($_SESSION['role']!="dokter"){
     }
 // echo $_SESSION["user"];
 // exit;
-$sql = "SELECT * from tb_pasien";
-$data = $db->prepare($sql);
+$query="select * from booking_registrasi where no_rkm_medis='$_GET[id]'";
+$data=$db->prepare($query);
 $data->execute();
-$hasil = $data->fetch();
+$baris=$data->fetch();
 ?>
- 
  <!DOCTYPE html>
  <html lang="en">
  
@@ -175,63 +174,38 @@ $hasil = $data->fetch();
  
                  </nav>
 <div class="container-fluid">
-<div class="card-body">
-    <?php
-    $cari = $_POST['cari'];
-    $query="select * from tb_pasien where no_rkm_medis like '%$cari%' OR nama_pasien like '%$cari%' ORDER BY `tb_pasien`.`nama_pasien` ASC LIMIT 0,7";
-    $hasil=$db->prepare($query);
-    $hasil->execute();
-    ?>
-<form action="riwayat-medis.php" method="post">
-    <div class="row">
-        <table><tr><td><label>Search</td>
-        <td>:</td>
-        <td><input type="search" name="cari" class="form-control form-control-sm w-80 p-3" placeholder="" aria-controls="dataTable"></td><td><input type="submit" name="cari" class="btn btn-success" value="Cari"></label></td></tr></table></form>
-        <br><br><br>
-        <hr>
-                <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                    <tr align="center">
-                        <th>No</th>
-                        <th>No Rekam Medis</th>
-                        <th>Nama Pasien</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Alamat</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Penanggung Jawab</th>
-                        <th>No KTP</th>
-                        <th>No Hp</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <?php
-                    $sql = "select * from tb_pasien";
-                    $data = $db->prepare($sql);
-                    $data->execute();
-                    $no=1;
-                    while($baris = $data->fetch()){
-                    ?>
-                    <tr align="center">
-                        <th><?= $no?></th>
-                        <th><?= $baris['no_rkm_medis']?></th>
-                        <th><?= $baris['nama_pasien']?></th>
-                        <th><?= $baris['jk']?></th>
-                        <th><?= $baris['alamat']?></th>
-                        <th><?= $baris['tgl_lahir']?></th>
-                        <th><?= $baris['nm_penjab']?></th>
-                        <th><?= $baris['nik']?></th>
-                        <th><?= $baris['no_hp']?></th>
-                        <th width="10%"><a href="i-riwayat-medis.php?id=<?= $baris['no_rkm_medis'] ?>" class="btn btn-warning btn-circle">
-        <i class="bi bi-pencil-square d-flex justify-content-between"></i>
-                                    </a></h6>
-                        </th>
-                    </tr>
-                    <?php $no++ ;}?>
-                </tfoot>
-            </table>
-</div>    </div>
-</div>
+<div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Riwayat Medis</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form action="act-tgl.php" method="post">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">No Rekam Medis</label>
+                    <input type="text" class="form-control" name="norekam" value="<?= $baris['no_rkm_medis']?>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nama Pasien</label>
+                    <input type="text" class="form-control" name="nama" value="<?= $baris['nama_pasien']?>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nama Poli</label>
+                    <input type="text" class="form-control" name="poli" value="<?= $baris['nama_poli']?>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tanggal Booking</label>
+                    <input type="text" class="form-control" name="tgl-booking" value="<?= $baris['tgl_booking']?>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tanggal Periksa</label>
+                    <input type="datetime-local" class="form-control" name="tgl-periksa">
+                  </div>
+                  <input type="submit" value="Simpan" class="btn btn-primary">
+                  <a href="i-tgl-periksa.php" class="btn btn-primary">Kembali</a>
+                  </form>
+            </div>
             </div>
             <footer class="sticky-footer bg-white ">
                 <div class="container my-auto">

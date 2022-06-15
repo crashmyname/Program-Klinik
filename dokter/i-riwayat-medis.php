@@ -88,6 +88,7 @@ $baris=$data->fetch();
                      <div class="bg-white py-2 collapse-inner rounded">
                          <h6 class="collapse-header">-</h6>
                          <a class="collapse-item" href="riwayat-medis.php">Riwayat Medis</a>
+                         <a class="collapse-item" href="../dokter/i-tgl-periksa.php">Input Tanggal Periksa</a>
                      </div>
                  </div>
              </li>
@@ -179,15 +180,18 @@ $baris=$data->fetch();
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <!-- <form action="" method="post"> -->
+              <form action="act-riwayat.php" method="post">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">No Rekam Medis</label>
                     <input type="text" class="form-control" name="norekam" value="<?= $baris['no_rkm_medis']?>" readonly>
+                    <input type="hidden" name="nama" value="<?= $baris['no_rkm_medis']?>">
                   </div>
+                  <input type="hidden" name="nik" value="<?= $baris['nik']?>">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Umur Pasien</label>
+                    <label for="exampleInputEmail1">Nama Pasien</label>
                     <input type="text" class="form-control" name="nama" value="<?= $baris['nama_pasien']?>" readonly>
+                    <input type="hidden" name="nama" value="<?= $baris['nama_pasien']?>">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Umur Pasien</label>

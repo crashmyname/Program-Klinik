@@ -1,5 +1,5 @@
 <?php 
- 
+include('../inc/koneksi.php');
 session_start();
  
 if (empty($_SESSION['user'])) {
@@ -169,10 +169,63 @@ if($_SESSION['role']!="dokter"){
 
                 </nav>
                 <!-- End of Topbar -->
-ini halaman dokter
+                <div class="container-fluid">
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Data Riwayat Pendaftaran</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                    
+                  <tr>
+                    <th>No</th>
+                    <th>No Rekam Medis</th>
+                    <th>Nama Pasien</th>
+                    <th>Nama Poli</th>
+                    <th>Tanggal Booking</th>
+                    <th>Tanggal Periksa</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                    $s = $_SESSION['user'];
+                    $sql = "SELECT * FROM booking_registrasi";
+                    $data = $db->prepare($sql);
+                    $data->execute();
+                    $no = 1;
+                    while($hasil = $data->fetch()){
+                    ?>
+                  <tr>
+                    <td><?= $no?></td>
+                    <td><?= $hasil['no_rkm_medis']?></td>
+                    <td><?= $hasil['nama_pasien']?></td>
+                    <td><?= $hasil['nama_poli']?></td>
+                    <td><?= $hasil['tgl_booking']?></td>
+                    <td><?= $hasil['tgl_periksa']?></td>
+                    <td><a href="act-tgl-periksa.php?id=<?= $hasil['no_rkm_medis'] ?>" class="btn btn-warning btn-circle">
+        <i class="bi bi-pencil-square d-flex justify-content-between"></i>
+                                    </a></h6></td>
+                  </tr>
+                    </tbody>
+                  <?php $no++ ;} ?></table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
 
 <!-- Footer -->
-<footer class="sticky-footer bg-white fixed-bottom">
+<footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; SMK Insan Pembangunan</span>
