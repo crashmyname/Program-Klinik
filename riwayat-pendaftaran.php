@@ -44,8 +44,14 @@ include('./layout/header.php');
                     <td><?= $hasil['tgl_booking']?></td>
                     <td><?= $hasil['tgl_periksa']?></td>
                   </tr>
-                  <?php ;} ?></table>
+                  <?php $no++;} ?></table>
 
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
                     <?php

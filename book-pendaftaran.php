@@ -25,6 +25,7 @@ $hasil1 = $data1->fetch();
                     <input type="text" class="form-control" disabled value="<?= $hasil['no_rkm_medis']?>">
                     <input type="hidden" name="norekam" value="<?= $hasil['no_rkm_medis']?>">
                   </div>
+                  <input type="hidden" name="nik" value="<?= $hasil['nik']?>">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nama Pasien</label>
                     <input type="text" class="form-control" disabled value="<?= $hasil['nama_pasien']?>">

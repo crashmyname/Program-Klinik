@@ -29,6 +29,7 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="assets/css/theme-green.css" rel="stylesheet" />
+    <link rel="icon" href="assets/img/logs1.png">
 </head>
 
 <body class="login-page">

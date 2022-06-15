@@ -18,7 +18,7 @@ require_once('./inc/koneksi.php');
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Login Dulu Coy</title>
+    <title>Selamat Datang Di Website Klinik</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -42,6 +42,7 @@ require_once('./inc/koneksi.php');
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="assets/css/theme-green.css" rel="stylesheet" />
+    <link rel="icon" href="assets/img/logs1.png">
 </head>
 
 <body class="login-page">
@@ -66,7 +67,7 @@ require_once('./inc/koneksi.php');
         <div class="logo">
             <p  class="align-center"><img src="assets/img/logs1.png" width="150px"></p>
             <a href="index.php">Klinik Jumiati</a>
-            <small>Bitung Cikupa kalo gak salah</small>
+            <small>Jl. Pajajaran No.14 No 62, RT.002/RW.005, Gandasari, Kec. Jatiuwung, Kota Tangerang, Banten 15137.</small>
         </div>
 
         <div class="card rounded">

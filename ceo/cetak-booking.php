@@ -43,52 +43,6 @@ if($_SESSION['role']!="owner"){
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../admin/dashboard.php">
-                <div class="sidebar-brand-icon">
-                <i class="bi bi-hospital"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Admin</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index-owner.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Tampilan admin
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Data Laporan</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">-</h6>
-                        <a class="collapse-item" href="data-booking.php">Data Booking</a>
-                        <a class="collapse-item" href="data-pasien.php">Data Pasien</a>
-                        <a class="collapse-item" href="data-dokter.php">Data Dokter</a>
-                        <a class="collapse-item" href="data-poli.php">Data Poli</a>
-                    </div>
-                </div>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -173,12 +127,10 @@ if($_SESSION['role']!="owner"){
                 <!-- End of Topbar -->
                 <div class="card-body">
                 <div class="card-header">
-                <h4 class="card-title">Print Laporan</h4> <a href="cetak-booking.php" class="btn btn-danger">CETAK</a>
+                <center><h4 class="card-title">LAPORAN BOOKING</h4></center>
               </div>
-              
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table id="example2" class="table table-bordered table-hover">
                   <thead>
-                    
                   <tr>
                     <th>No</th>
                     <th>No Rekam Medis</th>
@@ -208,7 +160,9 @@ if($_SESSION['role']!="owner"){
                   </tr>
                     </tbody>
                   <?php $no++ ;} ?></table>
-
+<script>
+    window.print();
+</script>
 </div>
 <!-- Footer -->
 <footer class="sticky-footer bg-white">

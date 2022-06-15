@@ -37,6 +37,7 @@ if (empty($_SESSION['user'])) {
   <link rel="stylesheet" href="./assets/AdminLTE/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="./assets/AdminLTE/plugins/summernote/summernote-bs4.min.css">
+  <link rel="icon" href="./assets/img/logs1.png">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
