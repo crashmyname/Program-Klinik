@@ -83,7 +83,7 @@ if($_SESSION['role']!="dokter"){
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">-</h6>
                         <a class="collapse-item" href="../dokter/riwayat-medis.php">Riwayat Medis</a>
-                        <a class="collapse-item" href="../dokter/i-tgl-periksa.php">Input Tanggal Periksa</a>
+                        <!-- <a class="collapse-item" href="../dokter/i-tgl-periksa.php">Input Tanggal Periksa</a> -->
                     </div>
                 </div>
             </li>

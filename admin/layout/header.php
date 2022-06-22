@@ -75,12 +75,12 @@ if (empty($_SESSION['user'])) {
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Data Laporan</span>
+                    <span>Data Master</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header" align="center">-</h6>
-                        <a class="collapse-item" href="../admin/laporan-booking.php">Laporan Data Booking</a>
+                        <a class="collapse-item" href="../admin/laporan-booking.php">Data Booking</a>
                         <a class="collapse-item" href="../admin/data-pasien.php">Data Pasien</a>
                         <a class="collapse-item" href="../admin/data-dokter.php">Data Dokter</a>
                         <a class="collapse-item" href="../admin/data-poli.php">Data Poli</a>

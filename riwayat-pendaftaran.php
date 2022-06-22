@@ -23,13 +23,12 @@ include('./layout/header.php');
                     <th>Nama Pasien</th>
                     <th>Nama Poli</th>
                     <th>Tanggal Booking</th>
-                    <th>Tanggal Periksa</th>
                   </tr>
                   </thead>
                   <tbody>
                   <?php
                     $s = $_SESSION['user'];
-                    $sql = "SELECT tb_pasien.nik , booking_registrasi.no_rkm_medis, booking_registrasi.nama_pasien, booking_registrasi.nama_poli, booking_registrasi.tgl_booking, booking_registrasi.tgl_periksa FROM tb_pasien , booking_registrasi where tb_pasien.nik='$s' AND booking_registrasi.nik='$s'";
+                    $sql = "SELECT tb_pasien.nik , booking_registrasi.no_rkm_medis, booking_registrasi.nama_pasien, booking_registrasi.nama_poli, booking_registrasi.tgl_booking FROM tb_pasien , booking_registrasi where tb_pasien.nik='$s' AND booking_registrasi.nik='$s'";
                     $data = $db->prepare($sql);
                     $data->execute();
                     $no = 1;
@@ -42,7 +41,6 @@ include('./layout/header.php');
                     <td><?= $hasil['nama_pasien']?></td>
                     <td><?= $hasil['nama_poli']?></td>
                     <td><?= $hasil['tgl_booking']?></td>
-                    <td><?= $hasil['tgl_periksa']?></td>
                   </tr>
                   <?php $no++;} ?></table>
 

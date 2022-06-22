@@ -182,8 +182,8 @@ $hasil = $data->fetch();
     $hasil=$db->prepare($query);
     $hasil->execute();
     ?>
-<form action="riwayat-medis.php" method="post">
     <div class="row">
+        <form action="v-riwayat-medis.php" method="post">
         <table><tr><td><label>Search</td>
         <td>:</td>
         <td><input type="search" name="cari" class="form-control form-control-sm w-80 p-3" placeholder="" aria-controls="dataTable"></td><td><input type="submit" name="cari" class="btn btn-success" value="Cari"></label></td></tr></table></form>
@@ -195,18 +195,15 @@ $hasil = $data->fetch();
                         <th>No</th>
                         <th>No Rekam Medis</th>
                         <th>Nama Pasien</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Alamat</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Penanggung Jawab</th>
-                        <th>No KTP</th>
-                        <th>No Hp</th>
-                        <th>Action</th>
+                        <th>Umur</th>
+                        <th>Keluhan</th>
+                        <th>Resep Obat</th>
+
                     </tr>
                 </thead>
                 <tfoot>
                     <?php
-                    $sql = "select * from tb_pasien";
+                    $sql = "select * from tb_rekam_medis where no_rkm_medis='$_GET[id]'";
                     $data = $db->prepare($sql);
                     $data->execute();
                     $no=1;
@@ -216,17 +213,9 @@ $hasil = $data->fetch();
                         <th><?= $no?></th>
                         <th><?= $baris['no_rkm_medis']?></th>
                         <th><?= $baris['nama_pasien']?></th>
-                        <th><?= $baris['jk']?></th>
-                        <th><?= $baris['alamat']?></th>
-                        <th><?= $baris['tgl_lahir']?></th>
-                        <th><?= $baris['nm_penjab']?></th>
-                        <th><?= $baris['nik']?></th>
-                        <th><?= $baris['no_hp']?></th>
-                        <th width="10%"><a href="v-riwayat-medis.php?id=<?= $baris['no_rkm_medis'] ?>" class="btn btn-warning btn-circle">
-                        <i class="bi bi-eye d-flex justify-content-between"></i>
-                                    </a></h6> | <a href="i-riwayat-medis.php?id=<?= $baris['no_rkm_medis'] ?>" class="btn btn-warning btn-circle">
-                        <i class="bi bi-pencil-square d-flex justify-content-between"></i>
-                                    </a></h6>
+                        <th><?= $baris['umur']?></th>
+                        <th><?= $baris['keluhan']?></th>
+                        <th><?= $baris['resepobat']?></th>
                         </th>
                     </tr>
                     <?php $no++ ;}?>

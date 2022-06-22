@@ -2,16 +2,23 @@
 include('./layout/header.php');
 
 $s = date('Y-m-d');
-$query = "SELECT * from booking_registrasi where tgl_booking='$s'";
+$query = "SELECT * from booking_registrasi";
 $data = $db->prepare($query);
 $data->execute();
 $count=$data->rowCount();
+$query1 = "SELECT * from booking_registrasi where nama_poli='Poli Anak'";
+$data1 = $db->prepare($query1);
+$data1->execute();
+$count1=$data1->rowCount();
+$query2 = "SELECT * from booking_registrasi where nama_poli='Poli Obgyn'";
+$data2 = $db->prepare($query2);
+$data2->execute();
+$count2=$data2->rowCount();
+$query3 = "SELECT * from booking_registrasi where nama_poli='Imunisasi'";
+$data3 = $db->prepare($query3);
+$data3->execute();
+$count3=$data3->rowCount();
 
-if($count['nama_poli']=='Poli Anak'){
-  echo rowCount('Poli Anak');
-}else if($count['nama_poli']=='Poli Obgyn'){
-  echo rowCount('Poli Obgyn');
-}
 ?>
   <section class="content">
       <div class="container-fluid">
@@ -21,7 +28,7 @@ if($count['nama_poli']=='Poli Anak'){
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3><?= $count?></h3>
+                <h3><?=$count1?></h3>
 
                 <p>Antrian Poli Anak</p>
               </div>
@@ -36,7 +43,7 @@ if($count['nama_poli']=='Poli Anak'){
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><?= $count?></h3>
+                <h3><?= $count2?></h3>
 
                 <p>Antrian Poli Obgyn</p>
               </div>
@@ -51,7 +58,7 @@ if($count['nama_poli']=='Poli Anak'){
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?= $count?></h3>
+                <h3><?= $count3?></h3>
 
                 <p>Antrian Imunisasi</p>
               </div>

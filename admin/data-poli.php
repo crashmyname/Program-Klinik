@@ -27,13 +27,12 @@ include('../inc/koneksi.php');
                     <tr align="center">
                         <th>No</th>
                         <th>Name Poli</th>
-                        <th>Jenis Pemeriksaan</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-                        $query = "select * from tb_poli";
+                        $query = "select * from tb_poli ORDER BY nm_poli ASC";
                         $data=$db->prepare($query);
                         $data->execute();
                         $no = 1;
@@ -42,11 +41,10 @@ include('../inc/koneksi.php');
                     <tr align="center">
                         <td><?= $no;?></td>
                         <td><?php echo $hasil['nm_poli']?></td>
-                        <td><?php echo $hasil['jns-pemeriksaan']?></td>
-                        <td><a href="#" class="btn btn-warning btn-circle">
+                        <td><a href="e-datapoli.php?id=<?= $hasil['kd_poli']?>" class="btn btn-warning btn-circle">
         <i class="bi bi-pencil-square d-flex justify-content-end"></i>
                                     </a></h6>
-                        <a href="#" class="btn btn-danger btn-circle">
+                        <a href="delete-poli.php?id=<?= $hasil['kd_poli']?>" class="btn btn-danger btn-circle">
                         <i class="bi bi-trash d-flex justify-content-end"></i>
                                     </a></h6></td>
                     </tr>

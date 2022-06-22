@@ -109,7 +109,7 @@ if (empty($_SESSION['user'])) {
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index.php" class="brand-link">
-      <center><span class="brand-text font-weight-light">KLINIK JUMIARTI</span></center>
+      <center><span class="brand-text font-weight-light">KLINIK JUMIATI</span></center>
     </a>
 
     <!-- Sidebar -->
