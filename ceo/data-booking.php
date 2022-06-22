@@ -185,7 +185,6 @@ if($_SESSION['role']!="owner"){
                     <th>Nama Pasien</th>
                     <th>Nama Poli</th>
                     <th>Tanggal Booking</th>
-                    <th>Tanggal Periksa</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -204,7 +203,6 @@ if($_SESSION['role']!="owner"){
                     <td><?= $hasil['nama_pasien']?></td>
                     <td><?= $hasil['nama_poli']?></td>
                     <td><?= $hasil['tgl_booking']?></td>
-                    <td><?= $hasil['tgl_periksa']?></td>
                   </tr>
                     </tbody>
                   <?php $no++ ;} ?></table>

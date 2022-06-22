@@ -43,52 +43,6 @@ if($_SESSION['role']!="owner"){
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../admin/dashboard.php">
-                <div class="sidebar-brand-icon">
-                <i class="bi bi-hospital"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Admin</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index-owner.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Tampilan admin
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Data Laporan</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">-</h6>
-                        <a class="collapse-item" href="data-booking.php">Data Booking</a>
-                        <a class="collapse-item" href="data-pasien.php">Data Pasien</a>
-                        <a class="collapse-item" href="data-dokter.php">Data Dokter</a>
-                        <a class="collapse-item" href="data-poli.php">Data Poli</a>
-                    </div>
-                </div>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -173,49 +127,49 @@ if($_SESSION['role']!="owner"){
                 <!-- End of Topbar -->
                 <div class="card-body">
                 <div class="card-header">
-                <h4 class="card-title">Print Laporan</h4> <a href="cetak-booking1.php" class="btn btn-danger">CETAK</a>
+                <center><h4 class="card-title">LAPORAN PASIEN</h4></center>
               </div>
-        <div class="table-responsive">
-        <div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label></div></div></div>
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr align="center">
-                        <th>No</th>
-                        <th>No Rekam Medis</th>
-                        <th>Nama Pasien</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Alamat</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Penanggung Jawab</th>
-                        <th>No KTP</th>
-                        <th>No Hp</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <?php
-                    include('../inc/koneksi.php');
-                    $sql = "select * from tb_pasien";
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>No Rekam Medis</th>
+                    <th>Nama Pasien</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Alamat</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Penanggung Jawab</th>
+                    <th>NIK</th>
+                    <th>No HP</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                  include('../inc/koneksi.php');
+                    $s = $_SESSION['user'];
+                    $sql = "SELECT * FROM tb_pasien";
                     $data = $db->prepare($sql);
                     $data->execute();
-                    $no=1;
-                    while($baris = $data->fetch()){
+                    $no = 1;
+                    while($hasil = $data->fetch()){
                     ?>
-                    <tr align="center">
-                        <th><?= $no?></th>
-                        <th><?= $baris['no_rkm_medis']?></th>
-                        <th><?= $baris['nama_pasien']?></th>
-                        <th><?= $baris['jk']?></th>
-                        <th><?= $baris['alamat']?></th>
-                        <th><?= $baris['tgl_lahir']?></th>
-                        <th><?= $baris['nm_penjab']?></th>
-                        <th><?= $baris['nik']?></th>
-                        <th><?= $baris['no_hp']?></th>
-                    </tr>
-                    <?php $no++ ;}?>
-                </tfoot>
-            </table>
-        </div>
-    </div>
+                  <tr>
+                    <td><?= $no?></td>
+                    <td><?= $hasil['no_rkm_medis']?></td>
+                    <td><?= $hasil['nama_pasien']?></td>
+                    <td><?= $hasil['jk']?></td>
+                    <td><?= $hasil['alamat']?></td>
+                    <td><?= $hasil['tgl_lahir']?></td>
+                    <td><?= $hasil['nm_penjab']?></td>
+                    <td><?= $hasil['nik']?></td>
+                    <td><?= $hasil['no_hp']?></td>
+                  </tr>
+                    </tbody>
+                  <?php $no++ ;} ?></table>
+<script>
+    window.print();
+</script>
+</div>
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
