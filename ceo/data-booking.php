@@ -31,6 +31,8 @@ if($_SESSION['role']!="owner"){
         rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
         
     <!-- Custom styles for this template-->
     <link href="../assets/sbadmin/css/sb-admin-2.min.css" rel="stylesheet">
@@ -173,21 +175,21 @@ if($_SESSION['role']!="owner"){
                 <!-- End of Topbar -->
                 <div class="card-body">
                 <div class="card-header">
-                <h4 class="card-title">Print Laporan</h4> <a href="cetak-booking.php" class="btn btn-danger">CETAK</a>
+                <h4 class="card-title">Print Laporan</h4> 
+                <!-- <a href="cetak-booking.php" class="btn btn-danger">CETAK</a> -->
               </div>
               
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="data-tables" width="100%" cellspacing="0">
                   <thead>
                     
                   <tr>
-                    <th>No</th>
-                    <th>No Rekam Medis</th>
-                    <th>Nama Pasien</th>
-                    <th>Nama Poli</th>
-                    <th>Tanggal Booking</th>
+                    <td>No</td>
+                    <td>No Rekam Medis</td>
+                    <td>Nama Pasien</td>
+                    <td>Nama Poli</td>
+                    <td>Tanggal Booking</td>
                   </tr>
                   </thead>
-                  <tbody>
                   <?php
                   include('../inc/koneksi.php');
                     $s = $_SESSION['user'];
@@ -204,7 +206,6 @@ if($_SESSION['role']!="owner"){
                     <td><?= $hasil['nama_poli']?></td>
                     <td><?= $hasil['tgl_booking']?></td>
                   </tr>
-                    </tbody>
                   <?php $no++ ;} ?></table>
 
 </div>
@@ -265,6 +266,23 @@ if($_SESSION['role']!="owner"){
     <!-- Page level custom scripts -->
     <script src="../assets/sbadmin/js/demo/chart-area-demo.js"></script>
     <script src="../assets/sbadmin/js/demo/chart-pie-demo.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script type="text/javascript"> 
+    $(document).ready(function () {
+        $('#data-tables').DataTable({
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        });
+    });
+    </script>
 
 </body>
 

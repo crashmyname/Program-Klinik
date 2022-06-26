@@ -21,8 +21,8 @@ include('../inc/koneksi.php');
     </div>
     <div class="card-body">
         <div class="table-responsive">
-        <div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label></div></div></div>
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <div class="row">
+            <table class="table table-bordered" id="data-tables" width="100%" cellspacing="0">
                 <thead>
                     <tr align="center">
                         <th>No</th>
@@ -37,7 +37,6 @@ include('../inc/koneksi.php');
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tfoot>
                     <?php
                     $sql = "select * from tb_pasien";
                     $data = $db->prepare($sql);
