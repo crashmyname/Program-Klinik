@@ -31,7 +31,7 @@ if(isset($_POST['login']))
         }
         else{
       echo "<script>alert('Username atau Password Anda Salah');</script>";
-    echo "<script>document.location='../admin/index.php';</script>";
+      echo "<script>document.location='../admin/index.php';</script>";
       session_destroy();
     }
 }

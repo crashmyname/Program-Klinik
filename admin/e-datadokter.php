@@ -38,7 +38,11 @@ $baris=$data->fetch();
     </div>
   <div class="form-outline mb-4">
     <label class="form-label" for="form5Example1">Poli</label>
-    <input type="text" id="form5Example1" class="form-control" name="poli" value="<?= $baris['poli'] ?>" required/>
+    <select class="form-select" aria-label="Default select example" name="hk" value="<?= $baris['poli'] ?>" required>
+    <option selected required><?= $baris['poli'] ?></option>
+    <option value="Senin">Poli KIA</option>
+    <option value="Selasa">Poli Obgyn</option>
+    </select>
   </div>
   <div class="form-outline mb-4">
     <label class="form-label" for="form5Example1">NO HP</label>
@@ -51,7 +55,7 @@ $baris=$data->fetch();
       <span class="text">Ubah Data
     </span>
   </button>
-      <a href="../admin/data-pasien.php" class="btn btn-primary btn-icon-split">
+      <a href="../admin/data-dokter.php" class="btn btn-primary btn-icon-split">
           <span class="icon text-white-50">
               <i class="bi bi-arrow-left-square"></i>
           </span>

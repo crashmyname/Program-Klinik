@@ -57,7 +57,7 @@ include('../inc/koneksi.php');
                         <th width="10%"><a href="e-datapasien.php?id=<?= $baris['no_rkm_medis'] ?>" class="btn btn-warning btn-circle">
         <i class="bi bi-pencil-square d-flex justify-content-between"></i>
                                     </a></h6>
-                        <a href="delete-pasien.php?id=<?= $baris['no_rkm_medis'] ?>" class="btn btn-danger btn-circle">
+                        <a href="delete-pasien.php?id=<?= $baris['no_rkm_medis'] ?>" class="btn btn-danger btn-circle" onclick="return confirm('Apakah Yakin data ingin dihapus?')">
                         <i class="bi bi-trash d-flex justify-content-between"></i>
                                     </a></h6></th>
                     </tr>

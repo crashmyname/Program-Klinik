@@ -52,7 +52,7 @@ include('../inc/koneksi.php');
                         <th><a href="e-datadokter.php?id=<?= $baris['kd_dokter'] ?>" class="btn btn-warning btn-circle">
         <i class="bi bi-pencil-square d-flex justify-content-end"></i>
                                     </a></h6>
-                        <a href="delete-dokter.php?id=<?= $baris['kd_dokter'] ?>" class="btn btn-danger btn-circle">
+                        <a href="delete-dokter.php?id=<?= $baris['kd_dokter'] ?>" class="btn btn-danger btn-circle" onclick="return confirm('Apakah Yakin data ingin dihapus?')">
                         <i class="bi bi-trash d-flex justify-content-end"></i>
                                     </a></h6></th>
                     </tr>

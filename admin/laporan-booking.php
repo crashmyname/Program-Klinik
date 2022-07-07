@@ -24,6 +24,7 @@ include('../inc/koneksi.php');
                     <th>Nama Pasien</th>
                     <th>Nama Poli</th>
                     <th>Tanggal Booking</th>
+                    <th>Waktu Booking</th>
                     <th>Tanggal Periksa</th>
                   </tr>
                   </thead>
@@ -42,6 +43,7 @@ include('../inc/koneksi.php');
                     <td><?= $hasil['nama_pasien']?></td>
                     <td><?= $hasil['nama_poli']?></td>
                     <td><?= $hasil['tgl_booking']?></td>
+                    <td><?= $hasil['waktu_booking']?></td>
                     <td><?= $hasil['tgl_periksa']?></td>
                   </tr>
                     </tbody>

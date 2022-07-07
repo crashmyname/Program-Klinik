@@ -44,7 +44,7 @@ include('../inc/koneksi.php');
                         <td><a href="e-datapoli.php?id=<?= $hasil['kd_poli']?>" class="btn btn-warning btn-circle">
         <i class="bi bi-pencil-square d-flex justify-content-end"></i>
                                     </a></h6>
-                        <a href="delete-poli.php?id=<?= $hasil['kd_poli']?>" class="btn btn-danger btn-circle">
+                        <a href="delete-poli.php?id=<?= $hasil['kd_poli']?>" class="btn btn-danger btn-circle" onclick="return confirm('Apakah Yakin data ingin dihapus?')">
                         <i class="bi bi-trash d-flex justify-content-end"></i>
                                     </a></h6></td>
                     </tr>

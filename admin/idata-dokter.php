@@ -21,6 +21,7 @@ include('../inc/koneksi.php');
   <option value="Jumat">Jumat</option>
   <option value="Sabtu">Sabtu</option>
   <option value="Minggu">Minggu</option>
+  <option value="Setiap Hari">Setiap hari</option>
   </select>
   <div class="form-outline mb-4">
     <label class="form-label" for="form5Example1">Jam Mulai</label>
@@ -32,7 +33,17 @@ include('../inc/koneksi.php');
     </div>
   <div class="form-outline mb-4">
     <label class="form-label" for="form5Example1">Poli</label>
-    <input type="text" id="form5Example1" class="form-control" name="poli" required/>
+    <select class="form-select" aria-label="Default select example" name="poli" value="" required>
+    <?php
+    $sql = "select * from tb_poli";
+    $data = $db->prepare($sql);
+    $data->execute();
+    while($baris = $data->fetch()){
+    ?>
+    <option value="<?= $baris['nm_poli']?>"><?= $baris['nm_poli']?></option>
+    <?php ;} ?>
+    </select>
+
   </div>
   <div class="form-outline mb-4">
     <label class="form-label" for="form5Example1">NO HP</label>
@@ -45,7 +56,7 @@ include('../inc/koneksi.php');
       <span class="text">Tambah Data
     </span>
   </button>
-      <a href="../admin/data-pasien.php" class="btn btn-primary btn-icon-split">
+      <a href="../admin/data-dokter.php" class="btn btn-primary btn-icon-split">
           <span class="icon text-white-50">
               <i class="bi bi-arrow-left-square"></i>
           </span>

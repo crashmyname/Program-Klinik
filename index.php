@@ -2,22 +2,22 @@
 include('./layout/header.php');
 
 $s = date('Y-m-d');
-$query = "SELECT * from booking_registrasi";
+$query = "SELECT * from booking_registrasi where tgl_booking ='$s'";
 $data = $db->prepare($query);
 $data->execute();
 $count=$data->rowCount();
-$query1 = "SELECT * from booking_registrasi where nama_poli='Poli Anak'";
+$query1 = "SELECT * from booking_registrasi where nama_poli='Poli KIA' and tgl_booking ='$s'";
 $data1 = $db->prepare($query1);
 $data1->execute();
 $count1=$data1->rowCount();
-$query2 = "SELECT * from booking_registrasi where nama_poli='Poli Obgyn'";
+$query2 = "SELECT * from booking_registrasi where nama_poli='Poli Obgyn' and tgl_booking ='$s'";
 $data2 = $db->prepare($query2);
 $data2->execute();
 $count2=$data2->rowCount();
-$query3 = "SELECT * from booking_registrasi where nama_poli='Imunisasi'";
-$data3 = $db->prepare($query3);
-$data3->execute();
-$count3=$data3->rowCount();
+// $query3 = "SELECT * from booking_registrasi where nama_poli='Imunisasi'";
+// $data3 = $db->prepare($query3);
+// $data3->execute();
+// $count3=$data3->rowCount();
 
 ?>
   <section class="content">
@@ -30,7 +30,7 @@ $count3=$data3->rowCount();
               <div class="inner">
                 <h3><?=$count1?></h3>
 
-                <p>Antrian Poli Anak</p>
+                <p>Antrian Poli KIA</p>
               </div>
               <div class="icon">
               <i class="ion ion-plus-round"></i>
@@ -54,9 +54,9 @@ $count3=$data3->rowCount();
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <!-- <div class="col-lg-3 col-6"> -->
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <!-- <div class="small-box bg-warning">
               <div class="inner">
                 <h3><?= $count3?></h3>
 
@@ -66,7 +66,7 @@ $count3=$data3->rowCount();
                 <i class="ion ion-android-happy"></i>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->

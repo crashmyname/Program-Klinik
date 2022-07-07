@@ -36,8 +36,14 @@ $hasil1 = $data1->fetch();
                       <div class="form-group">
                         <label>Nama Poli</label>
                         <select class="form-control" name="poli">
-                          <option value="Poli Anak">Poli Anak</option>
-                          <option value="Poli Obgyn">Poli Obgyn</option>
+                        <?php
+                        $sql = "select * from tb_poli";
+                        $data = $db->prepare($sql);
+                        $data->execute();
+                        while($baris = $data->fetch()){
+                        ?>
+                        <option value="<?= $baris['nm_poli']?>"><?= $baris['nm_poli']?></option>
+                        <?php ;} ?>
                         </select>
                       </div>
 </div>

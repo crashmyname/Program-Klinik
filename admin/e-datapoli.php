@@ -14,7 +14,7 @@ $baris=$data->fetch();
   <!-- Name input -->
   <input type="hidden" name="id" value="<?= $baris['kd_poli']?>">
   <div class="form-outline mb-4">
-    <label class="form-label" for="form5Example1">Nama Dokter</label>
+    <label class="form-label" for="form5Example1">Nama Poli</label>
     <input type="text" id="form5Example1" class="form-control" name="nama" value="<?= $baris['nm_poli'] ?>" required/>
   </div>
   <button class="btn btn-info btn-icon-split position-relative">
